@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <nav class="navbar navbar-expand-lg bg-body-tertiary;">
+        <div class="container" style="border:2px ridge rgb(3, 1, 1); text-align: center; padding: 10px;">
+            <a style="font-size: 2em;font-weight: bold"> {{ channel.title  }}</a>
+            {% if channel.parent_channel %}
+                <a style="color:black; font-size: 2em;font-weight: bold" href="/channels/{{ channel.parent_channel.id }}">Back</a>
+            {% else %}
+                <a style="color:black; font-size: 2em;font-weight: bold" href="/channels">Home</a>
+            {% endif %}
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="section" >
+            {% if not contents %}
+                <h1> There is no content </h1>
+                {% else %}
+                    {% for con in contents %}
+                        <div class="row">
+                            <div class="column" style=" width: 100%;padding: 0 10px;">
+                                <div class="card" style="  box-shadow: 0 4px 8px 0 rgba(245, 219, 219, 0.2);padding: 10px;background-color: #ebf5b4;margin: 4 auto; margin-bottom: 10px;font-family:verdana ">
+                                    <h4 class="card-title">{{ con.title }} </h4>
+                                    <p class="card-text">{{ con.text }}</p>
+                                    <hr>
+                                        {% for key, value in con.metadata.items %}
+                                        <li class="list-group-item">{{ key }} : {{ value }}</li>
+                                        {% endfor %}
+                                        <li class="list-group-item">Rate : {{ con.rating }}</li>
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

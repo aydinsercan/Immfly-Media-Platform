@@ -1,0 +1,35 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <nav class="navbar navbar-expand-lg bg-body-tertiary;">
+        <div class="container" style="border:2px ridge rgb(3, 1, 1); text-align: center; padding: 10px;">
+            <a style="font-size: 2em;font-weight: bold"> {{ channel_name }}</a>
+            {% if current %}
+                <a style="color:black" href="/channels/{{ current.id }}">Back</a>
+            {% else %}
+                <a style="color:black; font-size: 2em;font-weight: bold" href="/channels">Home</a>
+            {% endif %}
+        </div>
+    </nav>
+
+    <div class ="top" style="font-size: 3em;font-weight: bold;text-align: center;"></div>
+        <div class="wrap" style="display: grid;grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));grid-gap: 3px;max-width: 1000px;margin: auto;margin-top: 80px;">
+            {% if not channels %}
+                <h1>No channels to show</h1>
+            {% else %}
+                {% for chan in channels %}
+                    <div class="box" style="background: rgb(185, 179, 241); border-radius: 4px;width: 300px; height: 300px; ">
+                        <img src="{{ chan.picture.url }}" > 
+                        <span style="font-size: 2em;font-weight: bold;text-align: center;"> {{ chan.title }}</span> </br>
+                        <a class="box-action" style="font-size:1em;font-weight: bold;text-align: center;" href="/channels/{{ chan.id }}">Show</a>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+
+
+
