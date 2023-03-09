@@ -13,7 +13,7 @@ def channels_list(request):
 def channels(request, channel_id):
     try:
         current_channel = Channel.objects.get(id=channel_id)
-    except Channel.DoesNotExist:
+    except:
         return HttpResponseNotFound(html)
 
     channels = Channel.objects.filter(parent_channel=current_channel)
@@ -29,7 +29,7 @@ def contents(request, channel_id):
         return HttpResponseNotFound(html)
     try:
         channel = Channel.objects.get(id=channel_id)
-    except Channel.DoesNotExist:
+    except:
         return HttpResponseNotFound(html)
     contents = Content.objects.filter(channel=channel)
 
