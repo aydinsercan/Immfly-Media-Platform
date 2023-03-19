@@ -21,9 +21,7 @@ def containsContents(channels: list[Channel]) -> None:
         relatedSubs = Channel.objects.filter(parent_channel_id = chan.id)
         content = Content.objects.filter(channel_id = chan.id)
         if not relatedSubs:
-            arr = []
-            for con in content:
-                arr.append(con.rating)  
+            arr = [con.rating for con in content]  
             ratingDict[chan.title] = round(average(arr),1) 
 
 def ratingAlgorithm(channels: list[Channel]) -> dict[str, float]:
