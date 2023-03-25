@@ -33,7 +33,7 @@ class TestCSV(TestCase):
         Python supports file like objects, that don't write to the disk but stay in the memory.
         """
         inmemoryfile  = io.StringIO()
-        management.call_command("exportCSV", stdout=inmemoryfile)
+        management.call_command("commandCSV", stdout=inmemoryfile)
 
         self.assertIn("Pop Music: 8.0",inmemoryfile.getvalue())
         self.assertIn("TV Shows: 7.5",inmemoryfile.getvalue())
