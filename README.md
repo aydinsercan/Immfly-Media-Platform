@@ -86,10 +86,17 @@ Usage of docker to run the services
 - Postman
 - Mypy
 
-## Example Case
+## Example Algorithm Case
 
 ![ExampleCase](https://user-images.githubusercontent.com/32304725/223745516-c986ad64-9cb6-4ffd-9521-0618a418fa61.JPG)
 
+## Example Endpoints
+
+![Ekran Görüntüsü (69)](https://user-images.githubusercontent.com/32304725/228171297-22e65ddf-8c59-46b3-bfc1-324e0d908a04.png)
+
+![Ekran Görüntüsü (70)](https://user-images.githubusercontent.com/32304725/228171614-abca0f0d-6997-42d3-8d93-50a63636fcc1.png)
+
+![Ekran Görüntüsü (71)](https://user-images.githubusercontent.com/32304725/228171681-cf669b65-f342-4244-839e-d54ba8dcd0fb.png)
 
 ##
 __*Happy developing!*__
